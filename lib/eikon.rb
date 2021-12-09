@@ -13,9 +13,7 @@ module Eikon
   end
 
   def self.distance_between_files(filename_1, filename_2)
-    dhash_1 = dhash_for_file(filename_1)
-    dhash_2 = dhash_for_file(filename_2)
-    Eikon::Comparator.compare(dhash_1, dhash_2)
+    Eikon::Comparator.compare(dhash_for_file(filename_1), dhash_for_file(filename_2))
   end
 
   class Processor
