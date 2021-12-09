@@ -4,12 +4,18 @@ require "vips"
 module Eikon
   class Error < StandardError; end
 
-  def dhash_for_file(filename)
+  def self.dhash_for_file(filename)
     image = Eikon::Processor.new
-    image.load_image("./test/images/00001.jpg")
+    image.load_image(filename)
     image.preprocess_image
     image.generate_byte_array
     image.byte_array
+  end
+
+  def self.distance_between_files(filename_1, filename_2)
+    dhash_1 = dhash_for_file(filename_1)
+    dhash_2 = dhash_for_file(filename_2)
+    Eikon::Comparator.compare(dhash_1, dhash_2)
   end
 
   class Processor
@@ -38,6 +44,17 @@ module Eikon
           @byte_array += @image.getpoint(x,y)[0] < @image.getpoint((x+1), y)[0] ? "1" : "0"
         end
       end
+    end
+  end
+
+  class Comparator
+    def self.compare(dhash_1, dhash_2)
+      hamming_distance = 0
+      dhash_1.chars.each_with_index do |character, index|
+        hamming_distance += 1 if character != dhash_2.chars[index]
+      end
+
+      hamming_distance
     end
   end
 end

@@ -1,4 +1,5 @@
 require "test_helper"
+require "byebug"
 
 class EikonTest < Minitest::Test
   def setup
@@ -26,5 +27,16 @@ class EikonTest < Minitest::Test
 
   def test_one_shot_image_loader
     assert Eikon.dhash_for_file("./test/images/00001.jpg").nil? == false
+  end
+
+  def test_different_images_should_produce_different_hashes
+    dhash_1 = Eikon.dhash_for_file("./test/images/00001.jpg")
+    dhash_2 = Eikon.dhash_for_file("./test/images/00003.jpg")
+    assert dhash_1 != dhash_2
+  end
+
+  def test_hamming_distance_comparator
+    distance = Eikon.distance_between_files("./test/images/00001.jpg", "./test/images/00002.jpg")
+    assert distance != 0
   end
 end
