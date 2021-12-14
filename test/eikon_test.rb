@@ -39,4 +39,8 @@ class EikonTest < Minitest::Test
     distance = Eikon.distance_between_files("./test/images/00001.jpg", "./test/images/00002.jpg")
     assert distance != 0
   end
+
+  # def test_bucks_image
+  #   assert Eikon.dhash_for_file("./test/images/buckstest.jpeg").nil? == false
+  # end
 end

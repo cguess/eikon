@@ -1,5 +1,6 @@
 require "eikon/version"
 require "vips"
+require "ruby_jard"
 
 module Eikon
   class Error < StandardError; end
@@ -33,6 +34,8 @@ module Eikon
       image_buffer = @image.write_to_buffer ".tiff"
       # shrink image
       @image = Vips::Image.thumbnail_buffer(image_buffer, 9, height: 8, size: :force)
+      image_buffer = @image.write_to_buffer ".tiff"
+      @image = Vips::Image.new_from_buffer(image_buffer, "")
     end
 
     def generate_byte_array
