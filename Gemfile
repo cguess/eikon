@@ -12,3 +12,9 @@ gem "ruby_jard"
 gem "rubocop", "~> 1.27", require: false
 gem "rubocop-rails", require: false # Rails specific styles
 gem "rubocop-rails_config", require: false # More Rails stuff
+
+gem "sorbet-static-and-runtime"
+
+group :development do
+  gem "tapioca", require: false
+end
