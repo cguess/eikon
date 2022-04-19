@@ -17,6 +17,11 @@ module Eikon
     Eikon::Comparator.compare(dhash_for_file(filename_1), dhash_for_file(filename_2))
   end
 
+  def self.process_video(filename)
+    video_processor = Eikon::VideoProcessor.new(filename)
+
+  end
+
   class Processor
     @image = nil
     @byte_array = nil
@@ -42,7 +47,7 @@ module Eikon
       @byte_array = ""
       for y in  0..7 do
         for x in 0..7 do
-          @byte_array += @image.getpoint(x,y)[0] < @image.getpoint((x+1), y)[0] ? "1" : "0"
+          @byte_array += @image.getpoint(x, y)[0] < @image.getpoint((x + 1), y)[0] ? "1" : "0"
         end
       end
     end

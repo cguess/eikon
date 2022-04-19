@@ -8,7 +8,7 @@ class EikonTest < Minitest::Test
   end
 
   def test_that_it_has_a_version_number
-    refute_nil ::Eikon::VERSION
+    assert_not_nil ::Eikon::VERSION
   end
 
   def test_image_can_be_loaded
