@@ -37,7 +37,7 @@ module Eikon
     sig { returns(String) }
     attr_reader :filename
 
-    sig { params(filename: String).returns(T.self_type) }
+    sig { params(filename: String).void }
     def initialize(filename)
       @filename = filename
       @image = T.let(Vips::Image.new_from_file(filename), Vips::Image)

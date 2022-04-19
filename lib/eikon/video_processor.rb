@@ -41,7 +41,7 @@ module Eikon
       filename_parts = filename.split(".")
       filename_parts.select! { |e| !e.empty? }
       filename = filename_parts.first
-      filename.split("/").last
+      T.must(T.must(filename).split("/").last)
     end
 
     sig { void }
