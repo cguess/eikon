@@ -1,14 +1,14 @@
+# typed: true
 require "test_helper"
 require "byebug"
 
 class EikonTest < Minitest::Test
   def setup
-    @image = Eikon::Processor.new
-    @image.load_image("./test/images/00001.jpg")
+    @image = Eikon::Processor.new("./test/images/00001.jpg")
   end
 
   def test_that_it_has_a_version_number
-    refute_nil ::Eikon::VERSION
+    assert_not_nil ::Eikon::VERSION
   end
 
   def test_image_can_be_loaded
