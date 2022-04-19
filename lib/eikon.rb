@@ -1,5 +1,6 @@
 # typed: strict
 require "eikon/version"
+require "eikon/video_processor"
 require "vips"
 require "ruby_jard"
 require "sorbet-runtime"
@@ -36,7 +37,7 @@ module Eikon
     sig { returns(String) }
     attr_reader :filename
 
-    sig { params(filename: String).void }
+    sig { params(filename: String).returns(T.self_type) }
     def initialize(filename)
       @filename = filename
       @image = T.let(Vips::Image.new_from_file(filename), Vips::Image)

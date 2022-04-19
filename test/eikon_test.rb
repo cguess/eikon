@@ -15,12 +15,7 @@ class EikonTest < Minitest::Test
     assert @image.nil? == false
   end
 
-  def test_image_can_preprocess_image
-    @image.preprocess_image # will fail if something goes south
-  end
-
   def test_image_can_be_processed_into_byte_array
-    @image.preprocess_image
     @image.generate_byte_array
     assert @image.byte_array.nil? == false
   end
@@ -40,7 +35,7 @@ class EikonTest < Minitest::Test
     assert distance != 0
   end
 
-  # def test_bucks_image
-  #   assert Eikon.dhash_for_file("./test/images/buckstest.jpeg").nil? == false
-  # end
+  def test_bucks_image
+    assert Eikon.dhash_for_file("./test/images/buckstest.jpeg").nil? == false
+  end
 end

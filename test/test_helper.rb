@@ -2,9 +2,8 @@
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 require "eikon"
 require "minitest/autorun"
-
-
 require "minitest/assertions"
+
 module Minitest::Assertions
   # Borrowed from Rails: File activesupport/lib/active_support/testing/assertions.rb, line 19
   def assert_not(object, message = nil)

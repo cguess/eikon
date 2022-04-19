@@ -18,3 +18,5 @@ gem "sorbet-static-and-runtime"
 group :development do
   gem "tapioca", require: false
 end
+
+gem "terrapin"
