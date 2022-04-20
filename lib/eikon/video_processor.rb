@@ -34,7 +34,15 @@ module Eikon
       output_folder_path
     end
 
+    sig { params(folder_path: String).returns(T::Array[String]) }
     def get_frames_dhash(folder_path)
+      # All the file lists start with `.` and `..` so we need to remove those
+      file_names = Dir.entries(folder_path).drop(2)
+
+      dhashes = file_names.map do |file_name|
+        Eikon.dhash_for_file("#{folder_path}/#{file_name}")
+      end
+      dhashes
     end
 
   private

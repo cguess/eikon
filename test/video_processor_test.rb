@@ -24,4 +24,12 @@ class VideoProcessorTest < Minitest::Test
     assert_not_nil output_path
     assert Dir.entries(output_path).count > 2
   end
+
+  def test_dhash_can_be_generated_for_video_frames
+    output_path = @video.split_video_into_images
+    dhashes = @video.get_frames_dhash(output_path)
+
+    assert_not_nil dhashes
+    assert dhashes.count == (Dir.entries(output_path).drop(2).count)
+  end
 end
