@@ -1,4 +1,4 @@
-require_relative 'lib/eikon/version'
+require_relative "lib/eikon/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "eikon"
