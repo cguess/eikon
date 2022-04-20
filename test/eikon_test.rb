@@ -8,12 +8,16 @@ class EikonTest < Minitest::Test
   end
 
   def test_one_shot_image_loader
-    assert Eikon.dhash_for_file("./test/images/00001.jpg").nil? == false
+    assert Eikon.dhash_for_image("./test/images/00001.jpg").nil? == false
+  end
+
+  def test_one_shot_video_loader
+    assert Eikon.dhash_for_video("./test/videos/pexels-ron-lach-7121125.mp4").nil? == false
   end
 
   def test_different_images_should_produce_different_hashes
-    dhash_1 = Eikon.dhash_for_file("./test/images/00001.jpg")
-    dhash_2 = Eikon.dhash_for_file("./test/images/00003.jpg")
+    dhash_1 = Eikon.dhash_for_image("./test/images/00001.jpg")
+    dhash_2 = Eikon.dhash_for_image("./test/images/00003.jpg")
     assert dhash_1 != dhash_2
   end
 
@@ -23,6 +27,6 @@ class EikonTest < Minitest::Test
   end
 
   def test_bucks_image
-    assert Eikon.dhash_for_file("./test/images/buckstest.jpeg").nil? == false
+    assert Eikon.dhash_for_image("./test/images/buckstest.jpeg").nil? == false
   end
 end

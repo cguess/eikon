@@ -3,6 +3,8 @@ require "sorbet-runtime"
 
 module Eikon
   class ImageProcessor
+    # This is an implementation of the algorithm described at http://hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
+
     extend T::Sig
 
     sig { returns(String) }

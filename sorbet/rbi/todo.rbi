@@ -10,4 +10,6 @@ module ActiveSupport::TimeWithZone::TZInfo::TimezonePeriod; end
 module Rails::Application::Configuration; end
 module Rails::Engine::ActionDispatch::Routing::RouteSet; end
 module Rails::SourceAnnotationExtractor; end
+module T::Private::Methods::MethodHooks; end
+module T::Private::Methods::SingletonMethodHooks; end
 module Time::TZInfo::Timezone; end

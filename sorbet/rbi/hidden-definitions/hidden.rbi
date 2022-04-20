@@ -4418,6 +4418,56 @@ class Class
   def json_creatable?(); end
 end
 
+module ClimateControl
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
+class ClimateControl::Environment
+  def [](*args, **arg, &block); end
+
+  def []=(*args, **arg, &block); end
+
+  def delete(*args, **arg, &block); end
+
+  def synchronize(); end
+
+  def to_hash(*args, **arg, &block); end
+end
+
+class ClimateControl::Environment
+  extend ::Forwardable
+end
+
+class ClimateControl::Modifier
+  def initialize(env, environment_overrides=T.unsafe(nil), &block); end
+
+  def process(); end
+end
+
+class ClimateControl::Modifier::OverlappingKeysWithChangedValues
+  def initialize(hash_1, hash_2); end
+
+  def keys(); end
+end
+
+class ClimateControl::Modifier::OverlappingKeysWithChangedValues
+end
+
+class ClimateControl::Modifier
+end
+
+class ClimateControl::UnassignableValueError
+end
+
+class ClimateControl::UnassignableValueError
+end
+
+module ClimateControl
+  def self.env(); end
+
+  def self.modify(environment_overrides, &block); end
+end
+
 module CodeRay
   CODERAY_PATH = ::T.let(nil, ::T.untyped)
   TokenKinds = ::T.let(nil, ::T.untyped)
@@ -4831,6 +4881,26 @@ class ERB
   def def_method(mod, methodname, fname=T.unsafe(nil)); end
 
   def def_module(methodname=T.unsafe(nil)); end
+end
+
+class Eikon::Comparator
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Eikon::ImageProcessor
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class Eikon::VideoProcessor
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+module Eikon
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 class Encoding
@@ -16121,6 +16191,10 @@ class Tempfile::Remover
 end
 
 class Tempfile::Remover
+end
+
+module Terrapin
+  OS = ::T.let(nil, ::T.untyped)
 end
 
 class Thread

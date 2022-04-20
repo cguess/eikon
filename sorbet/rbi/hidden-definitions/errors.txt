@@ -8972,6 +8972,86 @@
 # 
 #         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
 #                         ^^^^^^^^^^
+# wrong constant name <Class:Environment>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name <Class:Modifier>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name <Class:UnassignableValueError>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name []
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name []=
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name delete
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name synchronize
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name to_hash
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name <static-init>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name <Class:OverlappingKeysWithChangedValues>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name initialize
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name process
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name initialize
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name keys
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name <static-init>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name <static-init>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name <static-init>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name <static-init>
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name env
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
+# wrong constant name modify
+# 
+#         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
+#                         ^^^^^^^^^^
 # wrong constant name <Class:Duo>
 # 
 #         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
@@ -12979,10 +13059,10 @@
 # 
 #         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
 #                         ^^^^^^^^^^
-# Did you mean?  FFI::Type::Builtin::SLONG
+# Did you mean?  FFI::Type::Builtin::ULONG
+#                FFI::Type::Builtin::SLONG
 #                FFI::Type::ULONG
 #                FFI::Type::SLONG
-#                FFI::Type::Builtin::ULONG
 # uninitialized constant FFI::Type::Builtin::LONGDOUBLE
 # 
 #         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
@@ -13278,10 +13358,10 @@
 # 
 #         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
 #                         ^^^^^^^^^^
-# Did you mean?  FFI::Type::Mapped::SLONG
+# Did you mean?  FFI::Type::Mapped::ULONG
+#                FFI::Type::Mapped::SLONG
 #                FFI::Type::ULONG
 #                FFI::Type::SLONG
-#                FFI::Type::Mapped::ULONG
 # uninitialized constant FFI::Type::Mapped::LONGDOUBLE
 # 
 #         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
@@ -25320,8 +25400,8 @@
 # 
 #         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
 #                         ^^^^^^^^^^
-# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
-#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
 #                RDoc::RD::BlockParser::Racc_Runtime_Version
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
 # uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
@@ -25369,8 +25449,8 @@
 # 
 #         my_value = klass.const_get(name, false) # rubocop:disable PrisonGuard/NoDynamicConstAccess
 #                         ^^^^^^^^^^
-# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
-#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
 #                RDoc::RD::InlineParser::Racc_Runtime_Version
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
 # uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
