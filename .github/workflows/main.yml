@@ -24,4 +24,4 @@ jobs:
         ruby-version: 3.1.1
         bundler-cache: true
     - name: Type check with Sorbet
-      run: bundle exec srb tc .
+      run: bundle exec srb tc --ignore "/vendor"
