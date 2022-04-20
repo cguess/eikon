@@ -15,5 +15,3 @@ module Minitest::Assertions
     assert_not object.nil?, "Expected a non-nil object but received nil"
   end
 end
-=======
->>>>>>> 5531db0 (initial commit)
