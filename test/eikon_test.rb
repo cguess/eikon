@@ -12,6 +12,7 @@ class EikonTest < Minitest::Test
   end
 
   def test_one_shot_video_loader
+    ensure_video_assets_exist
     assert Eikon.dhash_for_video("./test/videos/pexels-ron-lach-7121125.mp4").nil? == false
   end
 

@@ -8,3 +8,5 @@
 /tmp/
 
 .byebug_history
+
+test/videos/*

@@ -3,9 +3,11 @@ require "test_helper"
 require "byebug"
 require "sorbet-runtime"
 require "fileutils"
+require "terrapin"
 
 class VideoProcessorTest < Minitest::Test
   def setup
+    ensure_video_assets_exist
     @video = Eikon::VideoProcessor.new("test/videos/pexels-ron-lach-7121125.mp4")
   end
 
