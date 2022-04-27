@@ -8,14 +8,14 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "A small pure-Ruby (for now) implementation of DHash"
   spec.description   = "A small pure-Ruby (for now) implementation of DHash"
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://www.github.com/cguess/eikon"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
-  # spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = "https://www.github.com/cguess/eikon"
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
@@ -31,6 +31,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "ruby-vips", "~> 2.1"
   spec.add_runtime_dependency "terrapin", "~> 0.6.0"
   spec.add_runtime_dependency "sorbet-runtime", ">= 0.5.9204"
-
-  spec.add_development_dependency "ruby_jard"
 end

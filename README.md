@@ -1,10 +1,16 @@
 # Eikón
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/eikon`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is an implementation of the DHash image matching algorithm in pure Ruby, as described here
+https://www.hackerfactor.com/blog/?/archives/529-Kind-of-Like-That.html. Its main use is reverse
+image searching.
 
-TODO: Delete this and the text above, and describe your gem
+This library is fully types in Sorbet.
 
 ## Installation
+
+This gem requires [libvips](https://www.libvips.org) for image processing and [ffmpeg](https://ffmpeg.org) for video work. On MacOS you can install them using [HomeBrew](https://brew.sh) quite easily. On Linux your distro's package manager should have them. On Windows it's probably more difficult, but I don't have access to a machine to test that.
+
+Once both libraries are installed you can install the gem with one of the following methods:
 
 Add this line to your application's Gemfile:
 
@@ -22,7 +28,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To process a still image and get a DHash
+`Eikon.dhash_for_image("./test/images/00001.jpg")`
+
+To process a video and get an array of DHashes:
+`Eikon.dhash_for_video("./test/videos/pexels-ron-lach-7121125.mp4")`
 
 ## Development
 
@@ -41,4 +51,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Eikón project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/eikon/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Eikon project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/eikon/blob/master/CODE_OF_CONDUCT.md).
