@@ -11,7 +11,7 @@ module Eikon
         hamming_distance += 1 if character != dhash_2.chars[index]
       end
 
-      hamming_distance
+      hamming_distance + (dhash_1.length - dhash_2.length).abs
     end
   end
 end
