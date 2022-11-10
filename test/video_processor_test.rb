@@ -1,4 +1,5 @@
 # typed: true
+
 require "test_helper"
 require "byebug"
 require "sorbet-runtime"
@@ -33,5 +34,13 @@ class VideoProcessorTest < Minitest::Test
 
     assert_not_nil dhashes
     assert dhashes.count == (Dir.entries(output_path).drop(2).count)
+  end
+
+  def test_dhash_can_be_generated_for_specified_number_of_video_frames
+    output_path = @video.split_video_into_images(4)
+    dhashes = @video.get_frames_dhash(output_path)
+
+    assert_not_nil dhashes
+    assert dhashes.count == 4
   end
 end

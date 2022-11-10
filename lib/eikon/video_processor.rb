@@ -1,4 +1,5 @@
 # typed: strict
+
 require "sorbet-runtime"
 require "terrapin"
 
@@ -14,8 +15,8 @@ module Eikon
       @file_name = T.let(file_name, String)
     end
 
-    sig { returns(String) }
-    def split_video_into_images
+    sig { params(number_of_frames: Integer).returns(String) }
+    def split_video_into_images(number_of_frames = 0)
       file_name = get_file_name(@file_name)
 
       setup_tmp_folder
@@ -28,8 +29,24 @@ module Eikon
         raise "Folder already exists for this export"
       end
 
+      # Figure out the number of frames per minute given the number of frames we want, default to ever ten seconds out of sixty
+      fps = 0.166 # 10/60
+      unless number_of_frames.zero?
+        # Get length of video
+        line = Terrapin::CommandLine.new("ffmpeg", "-i :file_name 2>&1 | grep Duration | cut -d ' ' -f 4 | sed s/,//")
+        time = line.run(file_name: @file_name).chomp
+
+        # Turn the time into total seconds (with two points of precision)
+        time_parts =  time.split(":")
+        total_time =  Integer(time_parts[0]) * 60 * 60 # Hours
+        total_time += Integer(time_parts[1]) * 60 # Minutes
+        total_time += Float(time_parts[2]) # Seconds
+
+        fps = number_of_frames / total_time
+      end
+
       # ffmpeg -i pexels-ron-lach-7121125.mp4 -vf fps=10/60 out%d.png
-      line = Terrapin::CommandLine.new("ffmpeg", "-i :file_name -vf fps=10/60 :folder_name")
+      line = Terrapin::CommandLine.new("ffmpeg", "-i :file_name -vf fps=#{fps} :folder_name")
       line.run(file_name: @file_name, folder_name: "#{output_folder_path}/#{file_name}_%d.png")
       output_folder_path
     end
