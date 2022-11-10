@@ -20,10 +20,10 @@ module Eikon
     image.byte_array
   end
 
-  sig { params(filename: String).returns(T::Array[T::Hash[String, T.any(Integer, String)]]) }
-  def self.dhash_for_video(filename)
+  sig { params(filename: String, number_of_frames: Integer).returns(T::Array[T::Hash[String, T.any(Integer, String)]]) }
+  def self.dhash_for_video(filename, number_of_frames = 0)
     video_processor = Eikon::VideoProcessor.new(filename)
-    storage_path = video_processor.split_video_into_images
+    storage_path = video_processor.split_video_into_images(number_of_frames)
     dhashes = video_processor.get_frames_dhash(storage_path)
     dhashes
   end

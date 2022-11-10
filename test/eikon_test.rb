@@ -16,6 +16,11 @@ class EikonTest < Minitest::Test
     assert Eikon.dhash_for_video("./test/videos/pexels-ron-lach-7121125.mp4").nil? == false
   end
 
+  def test_one_shot_video_loader_with_set_number_of_frames
+    ensure_video_assets_exist
+    assert Eikon.dhash_for_video("./test/videos/pexels-ron-lach-7121125.mp4", 4).nil? == false
+  end
+
   def test_different_images_should_produce_different_hashes
     dhash_1 = Eikon.dhash_for_image("./test/images/00001.jpg")
     dhash_2 = Eikon.dhash_for_image("./test/images/00003.jpg")
