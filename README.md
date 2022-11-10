@@ -4,7 +4,7 @@ This is an implementation of the DHash image matching algorithm in pure Ruby, as
 https://www.hackerfactor.com/blog/?/archives/529-Kind-of-Like-That.html. Its main use is reverse
 image searching.
 
-This library is fully types in Sorbet.
+This library is fully typed in Sorbet.
 
 ## Installation
 
