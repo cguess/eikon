@@ -29,7 +29,7 @@ module Eikon
         raise "Folder already exists for this export"
       end
 
-      # Figure out the number of frames per minute given the number of frames we want, default to ever ten seconds out of sixty
+      # Figure out the number of frames per minute given the number of frames we want, default to every ten seconds out of sixty
       fps = 0.166 # 10/60
       unless number_of_frames.zero?
         # Get length of video
