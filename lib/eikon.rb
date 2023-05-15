@@ -4,7 +4,6 @@ require "eikon/comparator"
 require "eikon/video_processor"
 require "eikon/image_processor"
 require "vips"
-require "ruby_jard"
 require "sorbet-runtime"
 
 module Eikon

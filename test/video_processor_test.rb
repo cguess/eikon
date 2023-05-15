@@ -9,7 +9,7 @@ require "terrapin"
 class VideoProcessorTest < Minitest::Test
   def setup
     ensure_video_assets_exist
-    @video = Eikon::VideoProcessor.new("test/videos/pexels-ron-lach-7121125.mp4")
+    @video = Eikon::VideoProcessor.new("test/videos/WATCH Biden attends a Hispanic Heritage Month event in Kissimmee Florida.mp4")
   end
 
   def teardown
@@ -26,6 +26,11 @@ class VideoProcessorTest < Minitest::Test
 
     assert_not_nil output_path
     assert Dir.entries(output_path).count > 2
+  end
+
+  def test_empty_images_are_deleted
+    output_path = @video.split_video_into_images
+    Dir.entries(output_path).count == 7
   end
 
   def test_dhash_can_be_generated_for_video_frames
