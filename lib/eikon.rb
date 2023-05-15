@@ -1,4 +1,5 @@
 # typed: strict
+
 require "eikon/version"
 require "eikon/comparator"
 require "eikon/video_processor"

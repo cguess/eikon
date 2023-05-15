@@ -1,4 +1,5 @@
 # typed: strict
+
 require "sorbet-runtime"
 
 module Eikon
@@ -8,7 +9,7 @@ module Eikon
     def self.compare(dhash_1, dhash_2)
       hamming_distance = 0
       dhash_1.chars.each_with_index do |character, index|
-        hamming_distance += 1 if character != dhash_2.chars[index]
+        hamming_distance += 1 if character != dhash_2[index]
       end
 
       hamming_distance + (dhash_1.length - dhash_2.length).abs
