@@ -48,4 +48,11 @@ class VideoProcessorTest < Minitest::Test
     assert_not_nil dhashes
     assert dhashes.count == 4
   end
+
+  def test_odd_framed_video
+    @video = Eikon::VideoProcessor.new("test/videos/american-airlines.mp4")
+    output_path = @video.split_video_into_images
+    dhashes = @video.get_frames_dhash(output_path)
+    assert_not_nil dhashes
+  end
 end
