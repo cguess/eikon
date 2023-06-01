@@ -52,7 +52,7 @@ module Eikon
 
         # Screenshot the second second and second to last second
         # ffmpeg -ss 01:23:45 -i input -frames:v 1 -q:v 2 output.jpg
-        last_time = "#{time_parts[0]}:#{time_parts[1]}:#{time_parts[2].to_f - 1}"
+        last_time = "#{time_parts[0]}:#{time_parts[1]}:#{time_parts[2].to_f - 1.abs.floor}"
         ffmpeg_command = "-ss 00:00:02 -i :file_name " +
                          "-ss :last_time -i :file_name " +
                          "-map 0:v -vframes 1 :output_directory/:output_file_name_start " +
