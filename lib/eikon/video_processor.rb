@@ -35,9 +35,9 @@ module Eikon
 
       # Turn the time into total seconds (with two points of precision)
       time_parts =  time.split(":")
-      total_time =  Integer(time_parts[0]) * 60 * 60 # Hours
-      total_time += Integer(time_parts[1]) * 60 # Minutes
-      total_time += Float(time_parts[2]) # Seconds
+      total_time =  time_parts[0].to_i * 60 * 60 # Hours
+      total_time += time_parts[1].to_i * 60 # Minutes
+      total_time += time_parts[2].to_f # Seconds
 
       # Figure out the number of frames per minute given the number of frames we want, default to every ten seconds out of sixty
       if number_of_frames.positive?
