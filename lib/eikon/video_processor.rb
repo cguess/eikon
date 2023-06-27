@@ -15,6 +15,7 @@ module Eikon
       @file_name = T.let(file_name, String)
     end
 
+    # Note, this isn't guranteed to give the number of frames since we remove blank images
     sig { params(number_of_frames: Integer).returns(String) }
     def split_video_into_images(number_of_frames = 0)
       file_name = get_file_name(@file_name)
@@ -44,7 +45,7 @@ module Eikon
         number_of_frames = number_of_frames - 2
         number_of_frames = 0 if number_of_frames.negative?
 
-        fps = (number_of_frames - 2) / total_time # We subtract tw because we're taking the start and end
+        fps = (number_of_frames - 2) / total_time # We subtract two because we're taking the start and end
         line = Terrapin::CommandLine.new("ffmpeg", "-i :file_name -vf fps=#{fps} :folder_name")
         line.run(file_name: @file_name, folder_name: "#{output_folder_path}/#{file_name}_%05d.png")
       else
@@ -68,7 +69,6 @@ module Eikon
         output_file_name_end: "#{file_name}_%05d.png"
       )
       remove_blank_shots(output_folder_path)
-
 
       output_folder_path
     end
