@@ -33,7 +33,7 @@ class VideoProcessorTest < Minitest::Test
     output_path = @video.split_video_into_images(10)
 
     assert_not_nil output_path
-    assert Dir.entries(output_path).count == 10
+    assert_equal 10, Dir.entries(output_path).count
   end
 
   def test_empty_images_are_deleted
@@ -54,7 +54,7 @@ class VideoProcessorTest < Minitest::Test
     dhashes = @video.get_frames_dhash(output_path)
 
     assert_not_nil dhashes
-    assert dhashes.count == 4
+    assert_equal 4, dhashes.count
   end
 
   def test_odd_framed_video

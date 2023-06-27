@@ -41,6 +41,9 @@ module Eikon
 
       # Figure out the number of frames per minute given the number of frames we want, default to every ten seconds out of sixty
       if number_of_frames.positive?
+        number_of_frames = number_of_frames - 2
+        number_of_frames = 0 if number_of_frames.negative?
+
         fps = (number_of_frames - 2) / total_time # We subtract tw because we're taking the start and end
         line = Terrapin::CommandLine.new("ffmpeg", "-i :file_name -vf fps=#{fps} :folder_name")
         line.run(file_name: @file_name, folder_name: "#{output_folder_path}/#{file_name}_%05d.png")
