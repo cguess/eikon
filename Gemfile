@@ -18,4 +18,9 @@ group :development do
   gem "tapioca", require: false
 end
 
+group :test do
+  gem "ruby-prof", "~> 1.6"
+end
+
 gem "terrapin"
+

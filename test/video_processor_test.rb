@@ -5,6 +5,7 @@ require "byebug"
 require "sorbet-runtime"
 require "fileutils"
 require "terrapin"
+require "date"
 
 class VideoProcessorTest < Minitest::Test
   def setup
@@ -26,6 +27,13 @@ class VideoProcessorTest < Minitest::Test
 
     assert_not_nil output_path
     assert Dir.entries(output_path).count > 2
+  end
+
+  def test_video_can_be_split_by_number_of_frames
+    output_path = @video.split_video_into_images(10)
+
+    assert_not_nil output_path
+    assert Dir.entries(output_path).count == 10
   end
 
   def test_empty_images_are_deleted

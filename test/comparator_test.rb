@@ -2,6 +2,7 @@
 
 require "test_helper"
 require "byebug"
+require "date"
 
 class ComparatorTest < Minitest::Test
   def test_different_images_should_produce_different_hashes

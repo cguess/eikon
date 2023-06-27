@@ -41,33 +41,31 @@ module Eikon
 
       # Figure out the number of frames per minute given the number of frames we want, default to every ten seconds out of sixty
       if number_of_frames.positive?
-
-        fps = number_of_frames / total_time
+        fps = (number_of_frames - 2) / total_time # We subtract tw because we're taking the start and end
         line = Terrapin::CommandLine.new("ffmpeg", "-i :file_name -vf fps=#{fps} :folder_name")
-        line.run(file_name: @file_name, folder_name: "#{output_folder_path}/#{file_name}_%d.png")
+        line.run(file_name: @file_name, folder_name: "#{output_folder_path}/#{file_name}_%05d.png")
       else
-        # Scene detect the video
-        line = Terrapin::CommandLine.new("ffmpeg", "-i :file_name -filter:v \"select='gt(scene,0.4)',showinfo\" -vsync 0 :output_directory/%05d.png")
-        line.run(file_name: @file_name, output_directory: output_folder_path)
-
-        # Screenshot the second second and second to last second
-        # ffmpeg -ss 01:23:45 -i input -frames:v 1 -q:v 2 output.jpg
-        last_time = "#{time_parts[0]}:#{time_parts[1]}:#{(time_parts[2].to_f - 1).abs.floor}"
-        ffmpeg_command = "-ss 00:00:02 -i :file_name " +
-                         "-ss :last_time -i :file_name " +
-                         "-map 0:v -vframes 1 :output_directory/:output_file_name_start " +
-                         "-map 1:v -vframes 1 :output_directory/:output_file_name_end"
-        line = Terrapin::CommandLine.new("ffmpeg", ffmpeg_command)
-        line.run(
-          file_name: @file_name,
-          last_time: last_time,
-          output_directory: output_folder_path,
-          output_file_name_start: "#{SecureRandom.uuid}.png",
-          output_file_name_end: "#{SecureRandom.uuid}.png"
-        )
-
-        remove_blank_shots(output_folder_path)
+        line = Terrapin::CommandLine.new("ffmpeg", "-i :file_name -filter:v \"select='gt(scene,0.4)',showinfo\" -vsync 0 :output_directory/:output_file_name")
+        line.run(file_name: @file_name, output_directory: output_folder_path, output_file_name: "#{file_name}_%05d.png")
       end
+
+      # Screenshot the second second and second to last second
+      # ffmpeg -ss 01:23:45 -i input -frames:v 1 -q:v 2 output.jpg
+      last_time = "#{time_parts[0]}:#{time_parts[1]}:#{(time_parts[2].to_f - 1).abs.floor}"
+      ffmpeg_command = "-ss 00:00:02 -i :file_name " +
+                       "-ss :last_time -i :file_name " +
+                       "-map 0:v -vframes 1 :output_directory/:output_file_name_start " +
+                       "-map 1:v -vframes 1 :output_directory/:output_file_name_end"
+      line = Terrapin::CommandLine.new("ffmpeg", ffmpeg_command)
+      line.run(
+        file_name: @file_name,
+        last_time: last_time,
+        output_directory: output_folder_path,
+        output_file_name_start: "#{file_name}_%05d.png",
+        output_file_name_end: "#{file_name}_%05d.png"
+      )
+      remove_blank_shots(output_folder_path)
+
 
       output_folder_path
     end
