@@ -107,7 +107,6 @@ GEM
       rubocop-packaging (~> 0.5)
       rubocop-performance (~> 1.11)
       rubocop-rails (~> 2.0)
-    ruby-prof (1.6.3)
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
@@ -167,7 +166,6 @@ DEPENDENCIES
   rubocop (~> 1.27)
   rubocop-rails
   rubocop-rails_config
-  ruby-prof (~> 1.6)
   ruby-vips
   sorbet-static-and-runtime
   tapioca

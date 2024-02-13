@@ -8,6 +8,7 @@ require "vips"
 require "sorbet-runtime"
 
 module Eikon
+  # T::Configuration.default_checked_level = :never
   extend T::Sig
 
   class Error < StandardError; end
