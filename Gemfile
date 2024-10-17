@@ -16,6 +16,7 @@ gem "sorbet-static-and-runtime"
 
 group :development do
   gem "tapioca", require: false
+  gem "pry-byebug"
 end
 
 gem "terrapin"

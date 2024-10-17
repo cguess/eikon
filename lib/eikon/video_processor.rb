@@ -123,6 +123,14 @@ module Eikon
           entry.downcase.end_with?(".jpeg")
       end
 
+      # Somehow there's an emnpty list of files,
+      # This is going to exclusively be a bug in a different part of the code
+      # that is using this library, so we'll just make sure we don't break
+      if file_names.empty?
+        puts "No files found in the directory. This is likely a bug in the code that called this library."
+        return
+      end
+
       # Get the average size of the files
       total_size = file_names.reduce(0) do |sum, file_name|
         sum + File.size("#{folder_path}/#{file_name}")

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = "A small pure-Ruby (for now) implementation of DHash"
   spec.homepage      = "https://www.github.com/cguess/eikon"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.0.0")
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "ruby-vips", "~> 2.1"
   spec.add_runtime_dependency "terrapin", "~> 0.6.0"
   spec.add_runtime_dependency "sorbet-runtime", ">= 0.5.9204"
+  spec.add_runtime_dependency "mutex_m"
 end
